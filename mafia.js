@@ -21,7 +21,7 @@ function parsePost(postEle) {
 
   const username = document.querySelectorAll(`#${postID} a.o-user-link`)[0].innerText;
 
-  const voteEle = document.querySelectorAll(`#${postID} .message > b`)[0];
+  const voteEle = document.querySelectorAll(`#${postID} .message > b:last-of-type`)[0];
   const vote = parseVoteEle(voteEle);
 
   return { username, vote };
@@ -56,7 +56,7 @@ async function prevPage(currPageNum) {
 }
 
 async function mainMafia() {
-  const START_DATE = 51;
+  const START_DATE = 1;
   const votesDict = {};
 
   let currPageNum = Number(document.querySelector('.ui-pagination-page.state-selected').innerText);
